@@ -1,0 +1,681 @@
+/* Nocturne v2 template: dark walnut room on top, marble for what you read and do.
+   Colours from the logo and the renovated room (walnut, marble, brass, banquette coral). */
+:root{--night:#14264F;--wood:#0D1A3A;--panel:#1F3567;--ink:#16213F;--marble:#F9EFEA;--paper:#FFFAF7;--stone:#EBDDD6;--brass:#A47454;--brass-lt:#D4BCA9;--coral:#C7453C;--coral-dk:#A93830;--rose:#94080F;--mute:#5E566A;--mute-dk:#B9C0D6;--line:#E2D1C9;--line-dk:#2E477F;--h:68px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.6;color:var(--ink);background:var(--marble);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:"Antonio","Hanken Grotesk",sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.03em;line-height:1.02}
+:focus-visible{outline:3px solid var(--brass-lt);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;inset-inline-start:8px;top:8px;transform:translateY(-300%);background:var(--marble);color:var(--ink);padding:10px 16px;border-radius:6px;z-index:400}.skip:focus{transform:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:var(--night);color:var(--marble);border-bottom:1px solid var(--line-dk)}
+.hdr .wrap{height:var(--h);display:flex;align-items:center;gap:28px}
+.brand{display:block;flex:none;padding:6px 0}.brand img{height:30px;width:auto}
+.nav{display:flex;gap:4px;margin-left:16px}
+.nav a{text-decoration:none;font:500 18px/1 "Antonio";letter-spacing:.1em;text-transform:uppercase;padding:14px 14px;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--brass-lt)}.nav a[aria-current=page]{border-bottom-color:var(--brass)}
+.hr{margin-left:auto;display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 16px/1 "Hanken Grotesk",sans-serif;letter-spacing:.02em;text-decoration:none;padding:15px 26px;border-radius:3px;border:1.5px solid var(--coral);background:var(--coral);color:var(--paper);cursor:pointer;min-height:48px}
+.btn:hover{background:var(--coral-dk);border-color:var(--coral-dk)}
+.btn.ghost{background:transparent;color:var(--marble);border-color:var(--brass)}.btn.ghost:hover{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+.btn.dk{background:var(--ink);border-color:var(--ink);color:var(--marble)}.btn.dk:hover{background:#2B3862;border-color:#2B3862}
+.btn.sm{padding:11px 18px;min-height:44px;font-size:15px}
+.lang{font:600 15px/1 "Hanken Grotesk";border:1.5px solid var(--line-dk);background:transparent;color:var(--marble);border-radius:3px;padding:10px 14px;min-height:44px;cursor:pointer}.lang:hover{border-color:var(--brass)}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border:0;background:transparent;cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:var(--marble);transition:transform .25s,opacity .25s}
+.burger i:nth-child(1){top:17px}.burger i:nth-child(2){top:23px}.burger i:nth-child(3){top:29px}
+.burger[aria-expanded=true] i:nth-child(1){top:23px;transform:rotate(45deg)}.burger[aria-expanded=true] i:nth-child(2){opacity:0}.burger[aria-expanded=true] i:nth-child(3){top:23px;transform:rotate(-45deg)}
+.mnav{position:fixed;inset:var(--h) 0 0 0;background:var(--night);color:var(--marble);z-index:49;padding:28px 24px 120px;display:none;flex-direction:column;gap:0;overflow:auto}
+.mnav.open{display:flex}
+.mnav a{font:400 40px/1.1 "Antonio";letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:16px 0;border-bottom:1px solid var(--line-dk)}
+.mnav .sub{font:500 16px/1.5 "Hanken Grotesk";letter-spacing:0;text-transform:none;color:var(--mute-dk);border:0;padding:20px 0 0}
+
+/* hero: the dark room */
+.sub{font-size:20px;line-height:1.55;max-width:28em;margin-top:26px;color:#F1E6E0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.status{display:inline-flex;align-items:center;gap:10px;margin-top:30px;font-weight:600;font-size:16px}
+.status:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--brass);flex:none}
+.status.open:before{background:#6FB06A}
+.proof{margin-top:12px;font-size:15px;color:var(--mute-dk)}
+
+/* sections */
+.sec{padding:104px 0;position:relative}
+.sec h2{font-size:clamp(40px,4.8vw,68px);letter-spacing:.03em;max-width:14ch}
+.rule{display:block;width:64px;height:2px;background:var(--brass);margin:20px 0 0}
+.lead{font-size:19px;line-height:1.55;max-width:30em;margin-top:22px}
+
+/* dishes: marble */
+.sig{margin-top:30px;font-size:18px;line-height:1.6;max-width:32em;color:var(--mute)}
+.sig b{font:italic 500 23px/1.3 "Newsreader",serif;color:var(--ink)}
+.sig span{font:500 22px "Antonio";letter-spacing:.04em;color:var(--coral);margin:0 0 0 4px}
+.rows{list-style:none;margin-top:30px}
+.rows li{display:flex;align-items:center;gap:16px;padding:12px 0;border-top:1px solid var(--line)}
+.rows li:last-child{border-bottom:1px solid var(--line)}
+.th{width:76px;height:76px;flex:none;border-radius:50%;background:#fff;overflow:hidden}
+.th img{width:100%;height:100%;object-fit:cover}
+.it{display:block;min-width:0}
+.it i{display:block;font:italic 500 22px/1.2 "Newsreader",serif}
+.it small{display:block;font-size:14.5px;line-height:1.4;color:var(--mute);margin-top:3px;max-width:30em}
+.dots{flex:1;border-bottom:2px dotted var(--brass);transform:translateY(-4px);min-width:14px;align-self:center}
+.pr{font:500 22px/1 "Antonio";letter-spacing:.04em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.more{margin-top:30px}
+.note{font-size:14px;color:var(--mute);margin-top:16px}
+
+/* the room: walnut */
+
+/* reserve: marble */
+.marble{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.reserve>.wrap{position:relative;z-index:1}
+.reserve .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:72px;align-items:start}
+.ways{list-style:none;margin-top:34px;display:grid;gap:0;max-width:30em}
+.ways li{display:flex;gap:18px;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:18px}
+.ways li:last-child{border-bottom:1px solid var(--line)}
+.ways span{font:500 18px "Antonio";letter-spacing:.1em;text-transform:uppercase;color:var(--coral);min-width:64px;padding-right:8px;flex:none}
+.ways a{text-decoration:none;font-weight:600;overflow-wrap:anywhere;padding:8px 0;display:inline-block}.ways a:hover{text-decoration:underline}
+.rform{background:var(--paper);padding:38px 40px 34px;outline:1px solid var(--brass-lt);outline-offset:-10px;display:grid;gap:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.three{display:grid;grid-template-columns:1.3fr 1.1fr .7fr;gap:18px}
+.fld{display:grid;gap:6px;min-width:0}
+.fld label{font:500 17px "Antonio";letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.fld input,.fld select,.fld textarea{font:400 17px "Hanken Grotesk";color:var(--ink);background:#fff;border:1px solid #827B6D;border-radius:3px;padding:12px 12px;min-height:48px;width:100%}
+.fld textarea{resize:vertical}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--coral);outline-offset:1px;border-color:var(--coral)}
+.rerr{color:var(--rose);font-weight:600;font-size:15px}
+.rform .btn{justify-self:start}
+.rform .fine{font-size:14px;color:var(--mute);line-height:1.5}
+
+/* footer */
+.ftr{background:var(--night);color:var(--marble);padding:68px 0 48px}
+.ftr .wrap{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:48px}
+.ftr img{width:300px;height:auto}
+.ftr p,.ftr li{font-size:15px;color:var(--mute-dk);line-height:1.6}
+.ftr h4{font:500 18px/1 "Antonio";letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;color:var(--brass-lt)}
+.ftr ul{list-style:none}
+.ftr a{text-decoration:none;display:inline-block;padding:10px 0;overflow-wrap:anywhere}.ftr a:hover{text-decoration:underline}
+.ftr .fine{grid-column:1/-1;border-top:1px solid var(--line-dk);padding-top:22px;font-size:14px}
+
+/* mobile bar and toast */
+.mbar{display:none}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--ink);color:var(--marble);padding:14px 20px;border-radius:4px;font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;z-index:80;max-width:calc(100vw - 32px);text-align:center;border:1px solid var(--brass)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* menu page: the dinner card on marble */
+.menupage{position:relative;overflow:clip}
+.menupage>*{position:relative;z-index:1}.menupage>.marble{position:absolute;z-index:0}
+.mnote{margin-top:18px;max-width:34em;color:var(--mute);font-size:16px}
+.favs{display:flex;gap:18px;overflow-x:auto;padding:6px 32px 24px;margin:34px -32px 0;scroll-snap-type:x proximity;scroll-padding-inline:32px;scrollbar-width:thin}
+.fav{flex:none;width:216px;scroll-snap-align:start}
+.fav .im{aspect-ratio:1;background:#fff;overflow:hidden;outline:1px solid var(--brass-lt);outline-offset:-8px}
+.fav .im img{width:100%;height:100%;object-fit:contain}
+.fav .im.br{background:var(--stone)}.fav .im.br img{object-fit:cover}
+.fav h3{font:italic 500 21px/1.2 "Newsreader",serif;text-transform:none;letter-spacing:0;margin-top:12px}
+.fav p{font-size:14px;color:var(--mute);line-height:1.4;margin-top:3px}
+.fav b{display:block;font:500 21px "Antonio";letter-spacing:.04em;margin-top:6px}
+.chips{position:sticky;top:var(--h);z-index:40;background:var(--marble);border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
+.chips .wrap{display:flex;gap:6px;overflow-x:auto;padding:8px 32px;scrollbar-width:none}.chips .wrap::-webkit-scrollbar{display:none}
+.chip{flex:none;text-decoration:none;font:500 17px/1 "Antonio";letter-spacing:.1em;text-transform:uppercase;padding:14px 16px;border-radius:3px;border:1px solid transparent;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
+.chip:hover{border-color:var(--brass)}.chip.on{background:var(--ink);color:var(--marble)}
+.mcard{background:var(--paper);max-width:900px;margin:40px auto 0;padding:24px 64px 36px;outline:1px solid var(--brass);outline-offset:-12px;position:relative}
+.msec{padding:52px 0 6px;scroll-margin-top:calc(var(--h) + 62px)}
+.msec h2{font-size:clamp(34px,4vw,48px);letter-spacing:.05em;max-width:none;display:flex;align-items:center;gap:20px}
+.msec h2:after{content:"";flex:1;height:1px;background:var(--brass)}
+.snote{font-size:15px;color:var(--mute);margin-top:8px}
+.mlist{list-style:none;margin-top:14px}
+.mi{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.mi:last-child{border-bottom:0}
+.mi .it i{font-size:21px}
+.mi .it small{font-size:15px}
+.mi .dots{align-self:flex-end;transform:translateY(-8px)}
+.mfoot{margin-top:40px;font-size:15px;color:var(--mute);text-align:center}
+.mcta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding-block:44px 80px}
+.mcta .btn.ghost{color:var(--ink);border-color:var(--ink)}.mcta .btn.ghost:hover{background:var(--ink);color:var(--marble)}
+
+/* visit page */
+.info{background:var(--paper)}
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px}
+.vgrid h3{font-size:34px;margin-bottom:16px}
+.vgrid p,.vgrid li{font-size:18px}
+.vgrid p+p{margin-top:12px}
+.vgrid ul{list-style:none;display:grid;gap:8px}
+.vgrid li{padding-left:22px;position:relative}.vgrid li:before{content:"";position:absolute;left:0;top:.7em;width:8px;height:2px;background:var(--brass)}
+.soft{color:var(--mute);font-size:16px}
+.lnk{font-weight:600;display:inline-block;padding:6px 0;text-underline-offset:4px}
+
+/* ---- v2: photography first ---- */
+.hdr--over{position:fixed;left:0;right:0;top:0;background:linear-gradient(#14264FD9,#14264F00);border-bottom-color:transparent;transition:background .35s,border-color .35s}
+.hdr--over.solid{background:var(--night);border-bottom-color:var(--line-dk)}
+.js .rv{opacity:0;transform:translateY(30px);transition:opacity .9s ease var(--d,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.px{overflow:hidden}
+.px img{width:100%;height:100%;object-fit:cover;transform:translate3d(0,var(--py,0px),0) scale(1.14);will-change:transform}
+.ob{outline:1px solid var(--brass);outline-offset:12px}
+
+/* hero: full-bleed room */
+.hero2{position:relative;min-height:100vh;min-height:max(640px,100svh);display:flex;align-items:flex-end;background:var(--night);color:var(--marble);overflow:hidden;isolation:isolate}
+.hbg{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.hbg img{width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform-origin:62% 50%;animation:kb 28s ease-in-out infinite alternate}
+.hbg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#14264FE6 0,#14264FB3 40%,#14264F40 72%,#14264F26 100%),linear-gradient(0deg,#14264F 0,#14264F00 40%)}
+.hwrap{width:100%;padding-block:calc(var(--h) + 48px) 84px}
+.hero2 h1{font-weight:300;font-size:clamp(58px,9.2vw,148px);line-height:.94;letter-spacing:.02em;max-width:9.4em}
+.ln{display:block;animation:rise 1.1s cubic-bezier(.2,.8,.2,1) both}.ln:nth-child(2){animation-delay:.12s}.ln:nth-child(3){animation-delay:.24s}
+.hero2 .sub{max-width:36em}
+.hero2 .sub,.hero2 .cta,.hero2 .status,.hero2 .proof{animation:rise 1.1s cubic-bezier(.2,.8,.2,1) .42s both}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.1)}}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.sub{font-size:20px;line-height:1.55;max-width:28em;margin-top:26px;color:#F1E6E0}
+
+/* signature dish: dark, big italic */
+.sigf{position:relative;background:var(--night);color:var(--marble);padding:128px 0;overflow:hidden;isolation:isolate}
+.sigf:before{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(90deg,transparent 0 156px,var(--panel) 156px 157px)}
+.sigf .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:104px;align-items:center}
+.sf-fig{position:relative;aspect-ratio:4/5.2;max-height:84svh;width:100%}
+.sf-main{position:absolute;inset:0 20% 14% 12px;background:var(--wood)}
+.sf-sub{position:absolute;right:0;bottom:0;width:50%;aspect-ratio:4/5;border:10px solid var(--night);background:var(--wood)}
+.sf-copy h2{font:italic 500 clamp(46px,5.8vw,92px)/1.02 "Newsreader",serif;text-transform:none;letter-spacing:-.01em;max-width:10ch;color:var(--marble)}
+.sf-copy .lead{color:#F1E6E0;margin-top:26px}
+.sf2{margin-top:48px;padding-top:30px;border-top:1px solid var(--line-dk);max-width:30em}
+.sf2 h3{font:italic 500 36px/1.1 "Newsreader",serif;text-transform:none;letter-spacing:0}
+.sf2 p{color:var(--mute-dk);margin-top:8px;font-size:17px}
+.sf-copy .cta{margin-top:40px}
+
+/* photo band: one line over the room */
+.pband{position:relative;min-height:min(86svh,800px);display:flex;align-items:center;color:var(--marble);background:var(--night);overflow:hidden;isolation:isolate}
+.pimg{position:absolute;inset:-7% 0;z-index:-2}
+.pimg img{width:100%;height:100%;object-fit:cover;object-position:50% 55%;transform:translate3d(0,var(--py,0px),0)}
+.pband:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#14264FD9 0,#14264F4D 72%),linear-gradient(#14264F 0,#14264F00 22%,#14264F00 76%,#14264F 100%)}
+.bigline{font-weight:300;font-size:clamp(44px,7.4vw,120px);line-height:.98;letter-spacing:.025em;text-transform:uppercase;font-family:"Antonio",sans-serif;max-width:10.5em}
+.pcap{position:absolute;right:32px;bottom:22px;font-size:13px;color:var(--mute-dk);max-width:30em;text-align:right}
+
+/* from the kitchen: marble, photo stays while the list scrolls */
+.kitchen{background:var(--marble)}
+.kitchen .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:96px;align-items:start}
+.kfig{position:sticky;top:calc(var(--h) + 36px);aspect-ratio:4/5;max-height:calc(100svh - var(--h) - 72px);width:calc(100% - 24px);margin:12px;background:var(--stone)}
+.kitchen .th{width:92px;height:92px}
+.kitchen .rows li{padding:14px 0}
+.kitchen .it i{font-size:25px}
+
+/* around the table: horizontal photo track */
+.evening{background:var(--night);color:var(--marble);padding:112px 0 96px;overflow:hidden}
+.evening h2{color:var(--marble)}
+.ehead{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.gnav{display:flex;gap:10px}
+.gnav button{width:52px;height:52px;border:1px solid var(--brass);background:transparent;color:var(--marble);border-radius:50%;cursor:pointer;font:400 22px/1 "Hanken Grotesk",sans-serif}
+.gnav button:hover{background:var(--brass);color:var(--ink)}
+.track{--gut:max(32px,calc((100vw - 1240px)/2 + 32px));display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:48px var(--gut) 18px;scroll-padding-inline:var(--gut);scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.track figure{flex:none;height:min(68svh,580px);aspect-ratio:3/4;scroll-snap-align:start;overflow:hidden;background:var(--wood)}
+.track img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.track figure:hover img{transform:scale(1.04)}
+.cap{font-size:14px;color:var(--mute-dk);margin-top:26px}
+
+/* menu banner */
+.mban{position:relative;min-height:clamp(340px,50svh,500px);display:flex;align-items:flex-end;background:var(--night);color:var(--marble);overflow:hidden;isolation:isolate}
+.mbg{position:absolute;inset:0;z-index:-1}
+.mbg img{width:100%;height:100%;object-fit:cover;object-position:50% 56%}
+.mbg:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#14264FF2 0,#14264F80 55%,#14264F59 100%)}
+.mban .wrap{width:100%;padding-block:calc(var(--h) + 44px) 44px}
+.mban h1{font-weight:300;font-size:clamp(76px,13vw,200px);line-height:.88;letter-spacing:.03em}
+.mban .mnote{margin-top:20px;font-size:15px;color:#DDD3D6;max-width:44em}
+.wrap.mfavs{padding-top:12px;padding-bottom:26px}
+
+/* visit hero: dark and photographic */
+.vhero{position:relative;background:var(--night);color:var(--marble);overflow:hidden;isolation:isolate}
+.vhero .vbg{position:absolute;inset:0;z-index:-1}
+.vhero .vbg img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.vhero .vbg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#14264FEB 0,#14264FA6 52%,#14264F40 100%),linear-gradient(0deg,#14264F 0,#14264F00 30%)}
+.vhero .wrap{display:flex;align-items:flex-end;min-height:clamp(480px,64svh,640px);padding-block:calc(var(--h) + 40px) 64px}
+.vhero h1{font-weight:300;font-size:clamp(64px,10vw,150px);line-height:.92;letter-spacing:.03em}
+.vhero .lead{max-width:24em;color:#F1E6E0}
+
+@media (max-width:980px){
+ .nav,.hr{display:none}.burger{display:block}
+ .sec{padding:68px 0}
+ .reserve .wrap{grid-template-columns:1fr;gap:44px}
+ .ftr .wrap{grid-template-columns:1fr 1fr}.ftr .wrap>div:first-child{grid-column:1/-1}
+ .vgrid{grid-template-columns:1fr;gap:38px}
+ .mcard{padding:12px 28px 28px;margin-top:28px}
+ .wrap{padding-left:20px;padding-right:20px}.favs{padding-left:20px;padding-right:20px;margin-left:-20px;margin-right:-20px;scroll-padding-inline:20px}.chips .wrap{padding:8px 20px}
+ body{padding-bottom:72px}
+ .mbar{display:grid;grid-template-columns:repeat(3,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--night);padding:8px 10px calc(8px + env(safe-area-inset-bottom));gap:8px;border-top:1px solid var(--line-dk)}
+ .mbar a{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:3px;color:var(--marble);text-decoration:none;font-weight:600;font-size:15px;border:1px solid var(--line-dk)}
+ .mbar a.main{background:var(--coral);border-color:var(--coral);color:var(--paper)}
+ .toast{bottom:92px}
+}
+@media (max-width:640px){
+ .rform{padding:28px 22px 26px}.two,.three{grid-template-columns:1fr}.three{grid-template-columns:1fr 1fr}.three .fld:first-child{grid-column:1/-1}
+}
+@media (max-width:420px){
+ body{font-size:16.5px}
+ .brand img{height:26px}.brand{padding:9px 0}
+ .sub{font-size:18px;margin-top:20px}.cta{margin-top:26px}.status{margin-top:22px}
+ .th{width:64px;height:64px}.it i{font-size:20px}.pr{font-size:20px}
+ .mcard{padding:8px 20px 24px}.mi .it i{font-size:20px}
+ .ftr .wrap{grid-template-columns:1fr}.ftr img{width:240px}
+}
+
+@media (max-width:980px){
+ .hero2 .hbg img{object-position:50% 38%}
+ .hbg:after{background:linear-gradient(0deg,#14264F 0,#14264FE0 46%,#14264F59 100%)}
+ .hwrap{padding-block:calc(var(--h) + 28px) 44px}
+ .sigf{padding:84px 0}.sigf .wrap,.kitchen .wrap{grid-template-columns:1fr;gap:56px}
+ .sf-fig{max-height:none;aspect-ratio:4/4.6;max-width:560px}
+ .pband{min-height:72svh}.pcap{left:20px;right:20px;text-align:left}
+ .kfig{position:relative;top:auto;max-height:none;aspect-ratio:4/4.4;max-width:560px}
+ .evening{padding:80px 0 72px}.track{--gut:20px}.track figure{height:min(62svh,460px)}
+ .vhero .wrap{min-height:0;padding-block:calc(var(--h) + 56px) 48px}
+ .mban .wrap{padding-block:calc(var(--h) + 28px) 28px}
+}
+@media (max-width:420px){
+ .hero2 h1{font-size:clamp(50px,15vw,66px)}.hero2 .sub{font-size:18px;margin-top:20px}
+ .bigline{font-size:clamp(40px,12vw,56px)}.sf-copy h2{font-size:clamp(42px,12vw,56px)}
+ .gnav button{width:46px;height:46px}.mban h1,.vhero h1{font-size:clamp(60px,19vw,84px)}
+}
+@media (prefers-reduced-motion:reduce){
+ .hbg img,.ln,.hero2 .sub,.hero2 .cta,.hero2 .status,.hero2 .proof{animation:none}
+ .js .rv{opacity:1;transform:none;transition:none}
+ .px img,.pimg img{transform:none;will-change:auto}.track img{transition:none}
+ html{scroll-behavior:auto}
+}
+
+
+/* ---- v2 ---- */
+@view-transition{navigation:auto}
+.brand img{view-transition-name:brand}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.3s}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* arrival moment: logo and a brass line, then the curtain lifts (once per session, home page only) */
+.curtain{display:none;position:fixed;inset:0;z-index:300;background:var(--night);flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.arrive .curtain{display:flex;animation:curt 1.2s cubic-bezier(.7,0,.2,1) both}
+.curtain.done{display:none!important}
+.curtain img{width:min(300px,62vw);height:auto;animation:clogo .8s ease .1s both}
+.curtain i{display:block;height:1px;background:var(--brass);animation:cline .7s ease .25s both}
+@keyframes clogo{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes cline{from{width:0}to{width:min(220px,48vw)}}
+@keyframes curt{0%,64%{transform:none;visibility:visible}100%{transform:translateY(-100%);visibility:hidden}}
+.arrive .ln{animation-delay:.72s}.arrive .ln:nth-child(2){animation-delay:.84s}.arrive .ln:nth-child(3){animation-delay:.96s}
+.arrive .hero2 .sub,.arrive .hero2 .cta,.arrive .hero2 .status,.arrive .hero2 .proof{animation-delay:1.1s}
+.hbg picture{display:block;width:100%;height:100%}
+
+/* language button */
+.lang{white-space:nowrap}
+.lang span{opacity:.55;transition:opacity .2s,color .2s}
+html:not([lang=ar]) .lang .l-en,html[lang=ar] .lang .l-ar{opacity:1;color:var(--brass-lt)}
+.mnav .mlang{margin-top:26px;align-self:flex-start;font-size:18px;padding:12px 18px}
+.mnav .mlang span{display:inline}
+
+/* photo track counter */
+.gcount{align-self:center;font-size:14px;color:var(--mute-dk);min-width:3.6em;text-align:center;font-variant-numeric:tabular-nums}
+
+/* reservation: three short steps */
+.rflow{display:grid;gap:18px}
+.rstep{font-size:14px;color:var(--mute);letter-spacing:.04em}.rstep b{color:var(--ink)}
+.rpane{display:grid;gap:18px}.rpane[hidden]{display:none}
+.rlab{font:500 17px "Antonio";letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.chiprow{display:flex;flex-wrap:wrap;gap:8px}
+.dchip,.tchip,.ochip{font:500 16px/1.2 "Hanken Grotesk",sans-serif;border:1px solid #827B6D;background:#fff;color:var(--ink);border-radius:3px;padding:10px 14px;min-height:48px;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.dchip{min-width:78px}.dchip b{font:500 17px "Antonio";letter-spacing:.08em;text-transform:uppercase}.dchip span{font-size:14px}.dchip small{font-size:12px;color:var(--coral);font-weight:600}
+.ochip{flex-direction:row}
+.dchip:hover,.tchip:hover:not(:disabled),.ochip:hover{border-color:var(--ink)}
+.dchip[aria-pressed=true],.tchip[aria-pressed=true],.ochip[aria-pressed=true]{background:var(--ink);color:var(--marble);border-color:var(--ink)}
+.dchip[aria-pressed=true] small{color:var(--brass-lt)}
+.tchip:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.stepper{display:inline-flex;align-items:center;border:1px solid #827B6D;background:#fff;border-radius:3px;width:max-content}
+.stepper button{width:54px;height:52px;border:0;background:transparent;font:400 26px/1 "Hanken Grotesk",sans-serif;cursor:pointer;color:var(--ink)}
+.stepper button:hover{background:var(--stone)}
+.stepper output{min-width:58px;text-align:center;font:500 26px "Antonio"}
+.rnav{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.rform .btn.ghost{color:var(--ink);border-color:var(--ink)}.rform .btn.ghost:hover{background:var(--ink);color:var(--marble)}
+.rform .btn:disabled{opacity:.4;cursor:not-allowed}
+.rdone{display:grid;gap:16px}.rdone[hidden]{display:none}
+.rsum{font:italic 500 22px/1.3 "Newsreader",serif;padding-bottom:12px;border-bottom:1px solid var(--line)}
+
+/* menu: search, photo lightbox */
+.msearch{padding-block:4px 16px}
+.msearch input{width:100%;max-width:440px;font:400 17px "Hanken Grotesk",sans-serif;padding:12px 16px;min-height:48px;border:1px solid #827B6D;border-radius:3px;background:#fff;color:var(--ink)}
+.msearch input:focus{outline:2px solid var(--coral);outline-offset:1px;border-color:var(--coral)}
+.mnone{margin-top:12px;color:var(--mute)}
+.fav{cursor:pointer}.fav:hover .im{outline-color:var(--brass)}
+.mi[hidden],.msec[hidden],.chip[hidden]{display:none}
+.mi .it i{display:inline}
+.mi.has-ph{cursor:pointer}.mi.has-ph:hover .it i{color:var(--coral)}
+.mi .cam{color:var(--brass);margin-inline-start:8px;vertical-align:-2px;display:inline-block}
+.lb{position:fixed;inset:0;z-index:200;background:#14264FF2;display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+.lb[hidden]{display:none}
+.lb figure{max-width:min(900px,100%);max-height:100%;display:grid;gap:16px;text-align:center;color:var(--marble);cursor:default}
+.lb img{width:auto;height:auto;max-width:100%;max-height:66svh;object-fit:contain;margin:0 auto;outline:1px solid var(--brass);outline-offset:8px}
+.lb figcaption i{display:block;font:italic 500 28px/1.2 "Newsreader",serif}
+.lb figcaption span{display:block;color:var(--mute-dk);margin-top:4px}
+.lb figcaption b{display:block;font:500 24px "Antonio";letter-spacing:.04em;color:var(--brass-lt);margin-top:8px}
+.lb-x{position:absolute;top:14px;inset-inline-end:14px;width:52px;height:52px;border-radius:50%;border:1px solid var(--brass);background:transparent;color:var(--marble);font:300 34px/1 "Hanken Grotesk",sans-serif;cursor:pointer}
+.lb-x:hover{background:var(--brass);color:var(--ink)}
+
+/* visit: map card */
+.mapcard{display:block;text-decoration:none;border:1px solid var(--brass);background:var(--marble);padding:24px 26px;outline:1px solid var(--line);outline-offset:-8px;transition:background .2s}
+.mapcard:hover{background:var(--stone)}
+.mapcard .addr{display:block;font-size:19px;line-height:1.5}
+.mapcard .go{display:inline-block;margin-top:14px;font:500 18px "Antonio";letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
+.mapcard .go:after{content:" \2192"}
+
+/* Arabic (right to left) */
+html[lang=ar]{--ar-d:"Cairo";--ar-b:"IBM Plex Sans Arabic"}
+html[lang=ar] body{font-family:var(--ar-b),"Hanken Grotesk",system-ui,sans-serif;font-size:18px;line-height:1.8}
+html[lang=ar] *{letter-spacing:0!important;text-transform:none!important}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3,html[lang=ar] h4,html[lang=ar] .nav a,html[lang=ar] .mnav a,html[lang=ar] .btn,html[lang=ar] .chip,html[lang=ar] .rlab,html[lang=ar] .fld label,html[lang=ar] .ways span,html[lang=ar] .lang,html[lang=ar] .mapcard .go,html[lang=ar] .dchip b{font-family:var(--ar-d),var(--ar-b),sans-serif;font-weight:600}
+html[lang=ar] .it i,html[lang=ar] .fav h3,html[lang=ar] .sf-copy h2,html[lang=ar] .sf2 h3,html[lang=ar] .rsum,html[lang=ar] .lb figcaption i{font-family:var(--ar-d),var(--ar-b),serif;font-style:normal;font-weight:600}
+html[lang=ar] .it i{font-size:21px;line-height:1.5}
+html[lang=ar] .nav a{font-size:19px}
+html[lang=ar] .btn,html[lang=ar] .chip{font-size:17px}
+html[lang=ar] .hero2 h1{font-weight:500;font-size:clamp(46px,7.4vw,120px);line-height:1.2;max-width:12em}
+html[lang=ar] .bigline{font-weight:500;font-size:clamp(38px,6vw,100px);line-height:1.3;max-width:12em}
+html[lang=ar] .sf-copy h2{font-size:clamp(40px,5vw,80px);line-height:1.25;max-width:12ch}
+html[lang=ar] .mban h1,html[lang=ar] .vhero h1{font-weight:500;font-size:clamp(56px,10vw,160px);line-height:1.15}
+html[lang=ar] .sec h2{line-height:1.25;max-width:16ch}
+html[lang=ar] .mnav a{font-size:34px;line-height:1.4}
+html[dir=rtl] a[href^="tel:"],html[dir=rtl] .pr,html[dir=rtl] bdi{direction:ltr;unicode-bidi:isolate}
+html[dir=rtl] .nav{margin-left:0;margin-right:16px}
+html[dir=rtl] .hr,html[dir=rtl] .burger{margin-left:0;margin-right:auto}
+html[dir=rtl] .vhero .vbg:after{background:linear-gradient(270deg,#14264FEB 0,#14264FA6 52%,#14264F40 100%),linear-gradient(0deg,#14264F 0,#14264F00 30%)}
+html[dir=rtl] .pband:after{background:linear-gradient(270deg,#14264FD9 0,#14264F4D 72%),linear-gradient(#14264F 0,#14264F00 22%,#14264F00 76%,#14264F 100%)}
+html[dir=rtl] .sf-main{inset:0 12px 14% 20%}
+html[dir=rtl] .sf-sub{right:auto;left:0}
+html[dir=rtl] .pcap{right:auto;left:32px;text-align:left}
+html[dir=rtl] .vgrid li{padding-left:0;padding-right:22px}html[dir=rtl] .vgrid li:before{left:auto;right:0}
+html[dir=rtl] .mapcard .go:after{content:" \2190"}
+html[dir=rtl] .gnav button{transform:scaleX(-1)}
+html[dir=rtl] .hero2 .hwrap{text-align:right}
+@media (min-width:981px){html[dir=rtl] .hbg:after{background:linear-gradient(270deg,#14264FE6 0,#14264FB3 40%,#14264F40 72%,#14264F26 100%),linear-gradient(0deg,#14264F 0,#14264F00 40%)}}
+@media (max-width:980px){html[dir=rtl] .pcap{left:20px;right:20px;text-align:right}}
+
+@media (prefers-reduced-motion:reduce){
+ @view-transition{navigation:none}
+ .arrive .curtain{display:none}
+ .arrive .ln,.arrive .hero2 .sub,.arrive .hero2 .cta,.arrive .hero2 .status,.arrive .hero2 .proof{animation-delay:0s}
+}
+
+/* Optional "Also in ..." block (venue.json "also"). Appended to site.css by build_site.py only for venues that use it. */
+.also{position:relative;background:var(--night);color:var(--marble);padding:96px 0;overflow:hidden}
+.also .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:72px;align-items:center}
+.al-fig{position:relative}
+.al-main{aspect-ratio:4/3;overflow:hidden;background:var(--wood)}
+.al-main img{width:100%;height:100%;object-fit:cover}
+.al-sub{position:absolute;inset-inline-end:-20px;bottom:-28px;width:36%;aspect-ratio:4/3;overflow:hidden;border:8px solid var(--night);background:var(--wood)}
+.al-sub img{width:100%;height:100%;object-fit:cover}
+.also h2{font-size:clamp(34px,4vw,56px);max-width:14ch;color:var(--marble)}
+.also .lead{color:#E2DCD1;max-width:28em}
+.al-list{list-style:none;margin-top:26px;display:grid;gap:8px}
+.al-list li{padding-inline-start:22px;position:relative;font-size:17px;color:var(--marble)}
+.al-list li:before{content:"";position:absolute;inset-inline-start:0;top:.75em;width:8px;height:2px;background:var(--brass)}
+.also .cta{margin-top:30px}
+@media (max-width:980px){
+ .also{padding:68px 0}
+ .also .wrap{grid-template-columns:1fr;gap:44px}
+ .al-sub{inset-inline-end:12px;bottom:-24px}
+}
+
+/* venue theme */
+/* Dai Pescatori theme: a Ligurian harbour at dusk.
+   Deep navy (the logo's PESCATORI) for the evening, an oxblood panel from the dining-room walls, blush and ivory for reading,
+   the logo coral for buttons. Raleway light capitals (the logo's thin wide letters), Alegreya for dish names and the one
+   italic line, DM Sans for text. The motif is a calm wave line: rules, section edges, the ripple on the reading grounds.
+   Look only, no markup change. */
+:root{
+ --disp:"Raleway","DM Sans",system-ui,sans-serif;
+ --sans:"DM Sans",system-ui,sans-serif;
+ --serif:"Alegreya",Georgia,"Times New Roman",serif;
+ --ox:#831B18;--ox-dk:#651412;--lamp:#D4BCA9;--coral-lt:#F0705F;--blush:#FCECEC;
+ --rule-c:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12' viewBox='0 0 24 12'%3E%3Cpath d='M0 6Q6 0 12 6T24 6' fill='none' stroke='%23C7453C' stroke-width='1.5'/%3E%3C/svg%3E");
+ --rule-l:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='12' viewBox='0 0 24 12'%3E%3Cpath d='M0 6Q6 0 12 6T24 6' fill='none' stroke='%23D4BCA9' stroke-width='1.5'/%3E%3C/svg%3E");
+ --ripple:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='22' viewBox='0 0 160 22'%3E%3Cpath d='M0 11Q20 1 40 11T80 11T120 11T160 11' fill='none' stroke='%2314264F' stroke-opacity='.055' stroke-width='1.2'/%3E%3C/svg%3E");
+ /* section edges: a 24px wave in the colour of the neighbour (rising = at the bottom of a section, falling = at the top) */
+ --up-m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V13Q30 1 60 13T120 13T180 13T240 13V24Z' fill='%23F9EFEA'/%3E%3C/svg%3E");
+ --up-ox:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V13Q30 1 60 13T120 13T180 13T240 13V24Z' fill='%23831B18'/%3E%3C/svg%3E");
+ --up-p:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 24V13Q30 1 60 13T120 13T180 13T240 13V24Z' fill='%23FFFAF7'/%3E%3C/svg%3E");
+ --dn-m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 0V11Q30 23 60 11T120 11T180 11T240 11V0Z' fill='%23F9EFEA'/%3E%3C/svg%3E");
+ --dn-n:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 0V11Q30 23 60 11T120 11T180 11T240 11V0Z' fill='%2314264F'/%3E%3C/svg%3E");
+ --dn-ox:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 0V11Q30 23 60 11T120 11T180 11T240 11V0Z' fill='%23831B18'/%3E%3C/svg%3E");
+ --dn-p:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='24' viewBox='0 0 240 24'%3E%3Cpath d='M0 0V11Q30 23 60 11T120 11T180 11T240 11V0Z' fill='%23FFFAF7'/%3E%3C/svg%3E");
+ --cam:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 8h3l1.5-2h7L17 8h3v11H4z' fill='none' stroke='%23A47454' stroke-width='1.6'/%3E%3Ccircle cx='12' cy='13' r='3.2' fill='none' stroke='%23A47454' stroke-width='1.6'/%3E%3C/svg%3E");
+}
+
+/* type */
+body{font-family:var(--sans);font-size:17px;font-weight:400;line-height:1.62}
+h1,h2,h3{font-family:var(--disp);font-weight:300;letter-spacing:.07em;line-height:1.1}
+.btn,.lang,.dchip,.tchip,.ochip,.stepper button,.msearch input,.fld input,.fld select,.fld textarea,.lb-x,.gnav button{font-family:var(--sans)}
+.btn{font:600 12.5px/1 var(--disp);letter-spacing:.18em;text-transform:uppercase;border-radius:2px;padding:17px 28px}
+.btn.sm{font-size:12px;padding:12px 20px}
+.lang{font:600 12.5px/1 var(--disp);letter-spacing:.14em;border-radius:2px;padding:11px 14px}
+.nav a{font:500 12.5px/1 var(--disp);letter-spacing:.24em;padding:14px 14px}
+.mnav a{font:300 32px/1.15 var(--disp);letter-spacing:.14em}
+.brand img{height:24px;width:auto}.brand{padding:10px 0}
+.chip{font:600 11.5px/1 var(--disp);letter-spacing:.15em;border-radius:2px;padding:15px 10px}
+.ftr h4{font:600 12px/1 var(--disp);letter-spacing:.26em;color:var(--lamp)}
+.ways span,.fld label,.rlab{font:600 12px/1.3 var(--disp);letter-spacing:.22em}
+.ways span{color:var(--coral-dk);min-width:92px}
+.dchip b{font:600 12.5px var(--disp);letter-spacing:.16em}
+.stepper output{font:500 26px var(--serif)}
+.mapcard .go{font:600 12px var(--disp);letter-spacing:.22em;color:var(--coral-dk)}
+.pr{font:500 17px/1.2 var(--sans);letter-spacing:.02em;font-variant-numeric:lining-nums tabular-nums}
+.fav b,.lb figcaption b{font:500 16px var(--sans);letter-spacing:.03em;font-variant-numeric:lining-nums}
+.it i,.fav h3,.sig b,.sf2 h3,.rsum,.lb figcaption i{font-family:var(--serif);font-style:normal;font-weight:500;letter-spacing:0}
+.it i{font-size:22px;line-height:1.2}
+.kitchen .it i{font-size:27px}
+.fav h3{font-size:21px;line-height:1.2}
+.rsum{font-size:23px}
+.sec h2{font-size:clamp(32px,3.9vw,54px);max-width:16ch;line-height:1.08;letter-spacing:.08em}
+.vgrid h3{font-size:26px;letter-spacing:.1em}
+.msec h2{font-size:clamp(24px,2.7vw,32px);letter-spacing:.14em;font-weight:400}
+.snote{font-size:15px}
+
+/* ornament: the wave line */
+.rule{width:96px;height:12px;background:var(--rule-c) repeat-x left center/24px 12px;margin:24px 0 0}
+html[dir=rtl] .rule{background-position:right center}
+.also .rule,.sigf .rule{background-image:var(--rule-l)}
+
+/* focus ring: navy on blush, lamp on navy */
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.hdr :focus-visible,.mnav :focus-visible,.hero2 :focus-visible,.sigf :focus-visible,.pband :focus-visible,.evening :focus-visible,.also :focus-visible,.ftr :focus-visible,.vhero :focus-visible,.mban :focus-visible,.lb :focus-visible,.mbar :focus-visible,.curtain :focus-visible{outline-color:var(--lamp)}
+.status:before{background:var(--lamp)}
+.status.open:before{background:#6FB06A}
+
+/* header and arrival */
+.hdr--over.solid,.hdr--over:has(.burger[aria-expanded=true]){background:var(--night)}
+.curtain img{width:min(320px,66vw)}
+.curtain i{background:var(--coral-lt)}
+.ftr img{width:280px}
+
+/* hero: the entrance hall at night, navy dusk over the photograph, a small-capitals / italic lockup like the logo's tagline */
+.hbg img{object-position:40% 42%;transform-origin:42% 50%;animation-name:kbd}
+@keyframes kbd{from{transform:scale(1)}to{transform:scale(1.045)}}
+.hbg:after{background:linear-gradient(90deg,#14264FE8 0,#14264FBA 36%,#14264F45 66%,#14264F14 100%),linear-gradient(0deg,#14264F 0,#14264F00 40%),linear-gradient(180deg,#14264FD2 0,#14264F00 24%)}
+@media (min-width:981px){html[dir=rtl] .hbg:after{background:linear-gradient(270deg,#14264FE8 0,#14264FBA 36%,#14264F45 66%,#14264F14 100%),linear-gradient(0deg,#14264F 0,#14264F00 40%),linear-gradient(180deg,#14264FD2 0,#14264F00 24%)}}
+/* phones: the copy spans the full width, so the dusk comes up from the bottom instead of in from the side */
+@media (max-width:980px){.hbg img{object-position:64% 34% !important}.hbg:after,html[dir=rtl] .hbg:after{background:linear-gradient(0deg,#14264FF5 0,#14264FEA 46%,#14264FC8 62%,#14264F90 80%,#14264F6C 100%),linear-gradient(180deg,#14264FD2 0,#14264F00 24%)}}
+.hero2 h1{font-family:var(--disp);font-weight:300;font-size:clamp(38px,5.2vw,86px);line-height:1;letter-spacing:.04em;max-width:none}
+.hero2 .ln:nth-child(1),.hero2 .ln:nth-child(3){font-size:.34em;font-weight:500;letter-spacing:.44em;color:var(--coral-lt);line-height:1.2}
+.hero2 .ln:nth-child(2){font:italic 500 1.6em/1.02 var(--serif);text-transform:none;letter-spacing:-.004em;color:var(--blush);margin:.1em 0 .12em -.03em}
+.hero2 .sub{font-size:19px;max-width:31em;color:var(--ondark);margin-top:30px}
+.hero2 .btn.ghost{border-color:var(--lamp);color:var(--paper)}
+.hero2 .btn.ghost:hover{background:var(--lamp);border-color:var(--lamp);color:var(--ink)}
+.proof{letter-spacing:.02em}
+.hero2:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:24px;background:var(--up-ox) repeat-x 0 100%/240px 24px;z-index:2;pointer-events:none}
+
+/* signature: the oxblood panel with faint wood-slat lines, a lobster print and a round-cornered octopus print */
+.sigf{background:var(--ox);color:var(--blush);padding:136px 0 128px}
+.sigf:before{background:repeating-linear-gradient(90deg,transparent 0 156px,#933029 156px 157px)}
+.ob{outline-color:var(--lamp)}
+.sf-main{background:var(--ox-dk)}
+.sf-sub{border-color:var(--ox);background:var(--ox-dk)}
+.sf-copy h2{font:italic 500 clamp(40px,5vw,82px)/1.02 var(--serif);letter-spacing:-.008em;text-transform:none;max-width:none;color:var(--blush)}
+.sf-copy .lead{color:var(--ondark)}
+.sf2{border-top-color:#A5504A}
+.sf2 h3{font-size:34px;color:var(--blush)}
+.sf2 p{color:#EBCFC8}
+.sigf .btn.ghost{border-color:var(--lamp);color:var(--paper)}
+.sigf .btn.ghost:hover{background:var(--lamp);color:var(--ink)}
+
+/* band: the red room under a navy dusk, one big line */
+.pband{align-items:flex-end;padding-bottom:clamp(72px,10vw,128px)}
+.pband .wrap{width:100%}
+.pband:after,html[dir=rtl] .pband:after{background:linear-gradient(0deg,#14264FF0 0,#14264FB8 30%,#14264F00 60%),linear-gradient(90deg,#14264FC9 0,#14264F57 58%,#14264F1F 100%)}
+html[dir=rtl] .pband:after{background:linear-gradient(0deg,#14264FF0 0,#14264FB8 30%,#14264F00 60%),linear-gradient(270deg,#14264FC9 0,#14264F57 58%,#14264F1F 100%)}
+.pband:before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:var(--dn-ox) repeat-x 0 0/240px 24px,var(--up-m) repeat-x 0 100%/240px 24px}
+.bigline{font:300 clamp(30px,4.6vw,76px)/1.06 var(--disp);letter-spacing:.06em;max-width:13em;text-transform:uppercase}
+
+/* kitchen */
+.kitchen{background:var(--marble) var(--ripple)}
+.kfig{background:var(--stone)}
+.th{background:var(--stone);border:2px solid var(--paper);box-shadow:0 0 0 1px var(--line)}
+
+/* around the table */
+.evening{position:relative;padding-top:128px}
+.evening:before{content:"";position:absolute;left:0;right:0;top:-1px;height:24px;background:var(--dn-m) repeat-x 0 0/240px 24px}
+.evening h2{font-size:clamp(32px,3.9vw,54px)}
+.track figure{outline:1px solid #D4BCA999;outline-offset:-12px;background:var(--wood)}
+.gnav button{border-color:var(--lamp)}
+.gcount{direction:ltr;unicode-bidi:isolate}
+.gnav button:hover{background:var(--lamp);color:var(--ink)}
+
+/* also in Dahab: the second oxblood panel, a blue-hour beach */
+.also{background:var(--ox);padding:128px 0 112px}
+.also:before{content:"";position:absolute;left:0;right:0;top:-1px;height:24px;background:var(--dn-n) repeat-x 0 0/240px 24px;z-index:2}
+.info+.also:before{background-image:var(--dn-p)}
+.al-main{border:0;outline:1px solid var(--lamp);outline-offset:12px;background:var(--ox-dk)}
+.also h2{font-size:clamp(32px,3.9vw,54px);color:var(--blush)}
+.also .lead{font:italic 500 clamp(22px,2.2vw,30px)/1.3 var(--serif);color:var(--blush);max-width:20em}
+.al-list li{color:var(--ondark)}
+.al-list li:before{background:var(--lamp)}
+.also .btn.ghost{border-color:var(--lamp);color:var(--paper)}
+.also .btn.ghost:hover{background:var(--lamp);color:var(--ink)}
+
+/* reserve: the ripple under a paper card; on desktop the seven days sit in a 4 + 3 grid instead of a lone chip on a second row */
+@media (min-width:981px){.js-days{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}.js-days .dchip{min-width:0}}
+.reserve{background:var(--marble) var(--ripple)}
+.reserve .marble{display:none}
+.reserve:before{content:"";position:absolute;left:0;right:0;top:-1px;height:24px;background:var(--dn-ox) repeat-x 0 0/240px 24px;z-index:2}
+.rform{border-radius:2px}
+.dchip,.tchip,.ochip,.stepper{border-radius:2px}
+.dchip small{color:var(--coral-dk)}
+.fld input,.fld select,.fld textarea,.msearch input{border-radius:2px}
+
+/* footer */
+.ftr{position:relative;padding-top:92px;overflow:hidden}
+.ftr:before{content:"";position:absolute;left:0;right:0;top:-1px;height:24px;background:var(--dn-m) repeat-x 0 0/240px 24px}
+.ftr:after{content:"";position:absolute;right:max(24px,4vw);bottom:12px;width:min(380px,40vw);aspect-ratio:455/321;background:url(img/dai/marlin-cream.png) center/contain no-repeat;opacity:.07;pointer-events:none}
+.ftr .wrap{position:relative;z-index:1}
+
+/* phones: the footer carries the bottom-bar clearance */
+@media (max-width:980px){body{padding-bottom:0}.ftr{padding-bottom:calc(48px + 72px)}}
+
+/* menu page: navy banner, ripple ground, a printed dinner card headed by the lockup */
+.menupage .marble{display:none}
+.menupage{background:var(--marble) var(--ripple)}
+.mban:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:24px;background:var(--up-m) repeat-x 0 100%/240px 24px;z-index:2;pointer-events:none}
+.mban h1{font:300 clamp(56px,10vw,150px)/.9 var(--disp);letter-spacing:.06em}
+.mban .mnote{color:var(--ondark2)}
+.fav .im{outline-color:var(--brass)}
+.chip.on{background:var(--night);color:var(--paper)}
+.chip:hover{border-color:var(--brass)}
+.mcard{background:var(--paper);border-radius:2px;outline-color:var(--brass);padding-top:30px}
+.mcard:before{content:"";display:block;width:min(250px,72%);aspect-ratio:799/509;margin:14px auto 0;background:url(img/dai/logo-ink.png) center/contain no-repeat}
+.msec:first-of-type{padding-top:34px}
+.mi{display:grid;grid-template-columns:auto minmax(28px,1fr) auto;column-gap:12px;align-items:baseline}
+.mi .it{display:contents}
+.mi .it i{grid-column:1;grid-row:1;display:inline}
+/* the leader keeps at least 28px (24px on phones) so a long name wraps instead of squeezing it into a stub, and it sits on the first line beside the price */
+.mi .dots{grid-column:2;grid-row:1;align-self:baseline;transform:translateY(-6px);border-bottom:1.5px dotted var(--brass)}
+.mi .pr{grid-column:3;grid-row:1}
+.mi .it small{grid-column:1/-1;grid-row:2;display:block;margin-top:3px;max-width:38em}
+.mi .cam{display:none}
+.mi.has-ph .it i:after{content:"\2060\00a0";display:inline;padding-inline:9px 8px;background:var(--cam) center/15px 15px no-repeat}
+.mi.has-ph:hover .it i{color:var(--coral-dk)}
+.mcta .btn.ghost{color:var(--night);border-color:var(--night)}
+.mcta .btn.ghost:hover{background:var(--night);color:var(--paper)}
+
+/* visit */
+.vhero:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:24px;background:var(--up-p) repeat-x 0 100%/240px 24px;z-index:2;pointer-events:none}
+.vhero h1{font:300 clamp(42px,6.2vw,100px)/1 var(--disp);letter-spacing:.06em}
+/* the wooden sign sits in the upper part of the frame, the copy underneath it */
+.vhero .wrap{min-height:clamp(600px,84svh,780px)}
+@media (max-width:980px){.vhero .wrap{min-height:clamp(700px,86svh,780px)}.vhero .vbg img{height:116%;margin-top:-10%}}
+.vhero .vbg:after,html[dir=rtl] .vhero .vbg:after{background:linear-gradient(0deg,#14264FF2 0,#14264FD6 40%,#14264F66 70%,#14264F40 100%)}
+.vhero .btn.ghost{border-color:var(--lamp);color:var(--paper)}
+.vhero .btn.ghost:hover{background:var(--lamp);color:var(--ink)}
+.vhero .lead{color:var(--ondark)}
+.info{background:var(--paper)}
+.mapcard{border-color:var(--brass);border-radius:2px}
+
+/* tablet and phone */
+@media (max-width:980px){
+ .sigf{padding:92px 0 84px}
+ .also{padding:88px 0 84px}
+ .evening{padding-top:96px}
+ .sec h2,.also h2,.evening h2{font-size:clamp(30px,8vw,44px)}
+ .mnav a{font-size:28px}
+ .hero2 h1{font-size:clamp(36px,10.4vw,64px)}
+ .bigline{font-size:clamp(28px,7.6vw,46px)}
+}
+@media (max-width:420px){
+ .brand img{height:21px}
+ .mi{grid-template-columns:auto minmax(24px,1fr) auto;column-gap:8px}
+ .mi.has-ph .it i:after{padding-inline:6px 6px;background-size:13px 13px}
+ .it i{font-size:20px}
+ .kitchen .it i{font-size:23px}
+ .hero2 h1{font-size:clamp(34px,10.4vw,44px)}
+ .sf-copy h2{font-size:clamp(40px,12vw,52px)}
+ .mban h1,.vhero h1{font-size:clamp(52px,16vw,70px)}
+ .vhero h1{font-size:clamp(34px,10.6vw,44px)}
+ .btn{padding:16px 24px}
+}
+
+/* Arabic: Cairo for headings and buttons, Noto Naskh for dish names, Plex for text; no spaced capitals, no italics */
+html[lang=ar]{--ar-s:"Noto Naskh Arabic","Cairo",serif}
+html[lang=ar] body{font-size:18px;line-height:1.85}
+html[lang=ar] .it i,html[lang=ar] .fav h3,html[lang=ar] .sf2 h3,html[lang=ar] .rsum,html[lang=ar] .lb figcaption i,html[lang=ar] .stepper output,html[lang=ar] .also .lead{font-family:var(--ar-s);font-style:normal;font-weight:600}
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3,html[lang=ar] .bigline,html[lang=ar] .mnav a{font-family:var(--ar-d),var(--ar-b),sans-serif;font-weight:600}
+html[lang=ar] .hero2 h1{font-weight:600;font-size:clamp(40px,5.4vw,88px);line-height:1.2;max-width:none}
+html[lang=ar] .hero2 .ln:nth-child(1),html[lang=ar] .hero2 .ln:nth-child(3){font-size:.4em;font-weight:600;color:var(--coral-lt);line-height:1.6}
+html[lang=ar] .hero2 .ln:nth-child(2){font:600 1.45em/1.3 var(--ar-d);color:var(--blush);margin:.02em 0}
+html[lang=ar] .sf-copy h2{font:600 clamp(38px,4.6vw,76px)/1.3 var(--ar-s);max-width:none}
+html[lang=ar] .sf2 h3{font-size:34px;line-height:1.4}
+html[lang=ar] .bigline{font-size:clamp(30px,4.2vw,68px);line-height:1.35;max-width:19em;font-weight:600}
+html[lang=ar] .sec h2,html[lang=ar] .also h2,html[lang=ar] .evening h2{font-size:clamp(34px,4.2vw,58px);line-height:1.3}
+html[lang=ar] .mban h1{font-size:clamp(64px,10vw,150px);line-height:1.1;font-weight:600}
+html[lang=ar] .vhero h1{font-size:clamp(40px,6vw,96px);line-height:1.2;font-weight:600}
+html[lang=ar] .msec h2{font-size:clamp(28px,3.2vw,40px);line-height:1.3;font-weight:600}
+html[lang=ar] .it i{font-size:24px;line-height:1.5}
+html[lang=ar] .kitchen .it i{font-size:28px}
+html[lang=ar] .fav h3{font-size:24px;line-height:1.4}
+html[lang=ar] .rsum{font-size:26px}
+html[lang=ar] .vgrid h3{font-size:30px;line-height:1.4}
+html[lang=ar] .also .lead{font-size:clamp(22px,2.1vw,28px);line-height:1.7}
+html[lang=ar] .nav a,html[lang=ar] .btn,html[lang=ar] .chip,html[lang=ar] .lang,html[lang=ar] .rlab,html[lang=ar] .fld label,html[lang=ar] .ways span,html[lang=ar] .ftr h4,html[lang=ar] .mapcard .go,html[lang=ar] .dchip b{font-family:var(--ar-b),sans-serif;font-weight:600}
+html[lang=ar] .nav a{font-size:16px}
+html[lang=ar] .btn{font-size:15px}
+html[lang=ar] .chip{font-size:15px;padding:15px 10px}
+html[lang=ar] .ways span{font-size:15px}
+html[lang=ar] .mnav a{font-size:30px;line-height:1.5}
+html[lang=ar] .mi .it small{max-width:36em}
+html[lang=ar] .bigline,html[lang=ar] .sec h2{text-transform:none}
+@media (max-width:980px){
+ html[lang=ar] .hero2 h1{font-size:clamp(36px,10vw,60px)}
+ html[lang=ar] .sec h2,html[lang=ar] .also h2,html[lang=ar] .evening h2{font-size:clamp(32px,8vw,46px)}
+ html[lang=ar] .mnav a{font-size:28px}
+}
+@media (max-width:420px){
+ html[lang=ar] .hero2 h1{font-size:clamp(36px,10.6vw,44px)}
+ html[lang=ar] .bigline{font-size:clamp(28px,8vw,38px)}
+ html[lang=ar] .sf-copy h2{font-size:clamp(40px,12vw,54px)}
+ html[lang=ar] .mban h1{font-size:clamp(58px,17vw,78px)}
+ html[lang=ar] .vhero h1{font-size:clamp(34px,10vw,44px)}
+ html[lang=ar] .it i{font-size:22px}
+}
+
+/* phones and tablets: the small coral hero lines sit over the lit lanterns on short screens, so a lighter coral and a navy halo keep them readable */
+@media (max-width:980px){
+ html[lang] .hero2 h1 .ln:nth-child(1),html[lang] .hero2 h1 .ln:nth-child(3){color:#FF9C8C;text-shadow:0 0 2px #14264F,0 0 3px #14264F,0 0 6px #14264F,0 0 12px #14264F,0 0 24px #14264FE0}
+}
